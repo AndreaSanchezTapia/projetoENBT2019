@@ -1,0 +1,52 @@
+---
+title: "AED"
+author: "Andrea Sánchez-Tapia"
+date: "7/18/2019"
+output: html_document
+bibliography: ../citation/AED.bib
+csl: ../citation/journal-of-ecology.csl
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Introdução
+
+A análise exploratória de dados [_sensu_ @tukey_exploratory_1977; @zuur_protocol_2010] é um passo essencial. 
+
+@tukey_exploratory_1977 dizia
+
+
+## Incluindo a tabela
+
+```{r}
+sal <- read.csv("./Data/salarios.csv")
+
+pander::pander(table(sal$sexo))
+```
+
+
+```{r, message=FALSE}
+mh <- lm(salario ~ experiencia, data = sal[sal$sexo == "H", ])
+pander::pander(mh)
+```
+
+## Incluindo uma imagem
+
+
+`![](../figs/figura01.png)`
+
+![](../figs/figura01.png)
+
+
+```{r}
+knitr::include_graphics("../figs/figura01.png")
+```
+
+`<img src="../figs/figura01.png">`
+
+<img src="../figs/figura01.png">
+
+# References
